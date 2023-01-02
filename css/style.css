@@ -1,0 +1,61 @@
+    /*
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program. If not, see https://www.gnu.org/licenses/.
+    */
+
+:root {
+--cursor-small-size: 5px;
+--cursor-small-hover-size: 20px;
+--cursor-small-color:#fff;
+--cursor-small-hover-color:#fff;
+--cursor-move-speed:.02s;
+}
+
+body, body *:hover {
+ cursor: none;
+}
+
+.buomf--cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transition:transform var(--cursor-move-speed);
+}
+.buomf--cursor--small {
+  width: var(--cursor-small-size);
+  height: var(--cursor-small-size);
+  left: -2.5px;
+  top: -2.5px;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  z-index: 11000;
+  background-color: var(--cursor-small-color);
+  transition:width .2s, height .2s, left .2s, right .2s, background-color .2s;
+}
+
+.buomf--cursor--small.mouse--hover {
+  width: var(--cursor-small-hover-size);
+  height: var(--cursor-small-hover-size);
+  left: -10px;
+  top: -10px;
+  border-radius: 50%;
+  z-index: 11000;
+  background: var(--cursor-small-hover-color);
+  transition:width .2s, height .2s, left .2s, right .2s, background-color .2s;
+}
+
+.buomf--cursor--canvas {
+  width: 100vw;
+  mix-blend-mode: difference;
+  height: 100vh;
+  z-index: 12000;
+}
